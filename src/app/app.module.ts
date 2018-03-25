@@ -23,6 +23,7 @@ import { AddSubscriptionComponent } from './components/add-subscription/add-subs
 import { AddSubscriptionService } from './components/add-subscription/add-subscription.service';
 import { environment } from '../environments/environment.prod';
 import { NotificationService } from './shared/services/notification.service';
+import { FormatDatePipe } from './shared/pipes/format-date.pipe';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { NotificationService } from './shared/services/notification.service';
     RegisterComponent,
     HeaderComponent,
     AlertComponent,
-    AddSubscriptionComponent
+    AddSubscriptionComponent,
+    FormatDatePipe
   ],
   imports: [
     BrowserModule,
