@@ -36,8 +36,12 @@
   font-size: 14px;
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
+}
+
+.for button :not([disabled]) {
   cursor: pointer;
 }
+
 .form button:hover,.form button:active,.form button:focus {
   background: #43A047;
 }

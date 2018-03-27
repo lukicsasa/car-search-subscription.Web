@@ -9,19 +9,18 @@ export class NotificationService {
   private socket;
   constructor(private session: SessionService) { }
 
-  connect = () => {
+  connect() {
     this.socket = socketIo(environment.socketUri);
     this.socket.emit('authenticate', { user: this.session.user });
   }
 
-  onEvent = (event): Observable<any> => {
+  onEvent(event): Observable<any> {
     return new Observable<any>(observer => {
       this.socket.on(event, (data: any) => observer.next(data));
     });
   }
 
-  close = () => {
+  close() {
     this.socket.close();
   }
-
 }

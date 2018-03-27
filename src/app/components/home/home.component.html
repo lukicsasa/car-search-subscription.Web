@@ -2,8 +2,8 @@
   <div class="card-body">
     <h3>Subscriptions</h3>
     <br/>
-    <p *ngIf="!subscriptions || !subscriptions.length">You don't have any subscriptions. Go to "Subscribe" tab and create a first one!</p>
-    <table class="table" *ngIf="subscriptions && subscriptions.length">
+    <p *ngIf="!subscriptions?.length">You don't have any subscriptions. Go to "Subscribe" tab and create a first one!</p>
+    <table class="table" *ngIf="subscriptions?.length">
       <thead>
         <tr>
           <th>Name</th>

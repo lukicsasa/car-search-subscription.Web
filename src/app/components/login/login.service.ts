@@ -9,7 +9,7 @@ export class LoginService {
   user: User = new User();
   constructor(private requestService: RequestService, private sessionService: SessionService, private router: Router) { }
 
-  login = (user: User) => {
+  login(user: User) {
     this.requestService.post('user/login', {...user}).subscribe(
       data => {
         this.sessionService.initSession(data.token, data.user);

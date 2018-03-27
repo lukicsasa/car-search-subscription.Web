@@ -25,22 +25,20 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.notificationService.connect();
     this.listener = this.notificationService.onEvent('notification')
       .subscribe(data =>
-        this.alertService.showSuccess(data, 10000));
+        this.alertService.showSuccess(data, 5000));
   }
 
   ngOnDestroy() {
     this.notificationService.close();
   }
 
-  getSubscriptions = () => {
+  getSubscriptions() {
     this.homeService.getSubscriptions().subscribe(data => {
       this.subscriptions = data;
     });
   }
 
-  toggleSubscription = (id) => {
+  toggleSubscription(id) {
     this.homeService.toggleSubscription(id).subscribe(data => this.getSubscriptions());
   }
-
-
 }

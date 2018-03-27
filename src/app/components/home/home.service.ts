@@ -13,7 +13,6 @@ export class HomeService {
       pipe(catchError(err => this.request.handleError(err)));
   }
 
-
   toggleSubscription = (id) => {
     return this.request.post('subscription/toggle/' + id).
       pipe(catchError(err => this.request.handleError(err)));

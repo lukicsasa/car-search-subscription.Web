@@ -10,5 +10,4 @@ export class FormatDatePipe implements PipeTransform {
     const date = new Date(value);
     return date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
   }
-
 }

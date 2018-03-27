@@ -46,7 +46,7 @@ import { FormatDatePipe } from './shared/pipes/format-date.pipe';
     ReactiveFormsModule,
     NgbModule.forRoot(),
   ],
-  providers: [SessionService, AlertService, AuthGuard, RequestService, LoginService, RegisterService, HomeService, AddSubscriptionService],
+  providers: [SessionService, AlertService, AuthGuard, RequestService, RegisterService, HomeService, AddSubscriptionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
