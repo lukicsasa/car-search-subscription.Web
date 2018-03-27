@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -43,6 +43,7 @@ import { FormatDatePipe } from './shared/pipes/format-date.pipe';
     FormsModule,
     HttpClientModule,
     NgSelectModule,
+    ReactiveFormsModule,
     NgbModule.forRoot(),
   ],
   providers: [SessionService, AlertService, AuthGuard, RequestService, LoginService, RegisterService, HomeService, AddSubscriptionService],

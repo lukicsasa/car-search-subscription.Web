@@ -19,7 +19,8 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  login = () => {
+  login = (form) => {
+    if(!form.valid) return;
     this.loginService.login(this.user);
   }
 

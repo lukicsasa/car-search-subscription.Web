@@ -1,29 +1,29 @@
-<div class="component">
+<form #form="ngForm" class="component">
   <div class=form-row>
     <div class="form-group col-md-12">
       <label for="name">Name</label>
-      <input [(ngModel)]="subscription.name" type="text" class="form-control" id="name" placeholder="e.g. 'My BMW 320'">
+      <input required name="name" [(ngModel)]="subscription.name" type="text" class="form-control" id="name" placeholder="e.g. 'My BMW 320'">
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-3">
       <label for="year">Year</label>
-      <input [(ngModel)]="subscription.year" type="number" class="form-control" id="year" placeholder="e.g. 2017">
+      <input name="year" [(ngModel)]="subscription.year" type="number" class="form-control" id="year" placeholder="e.g. 2017">
     </div>
     <div class="form-group col-md-3">
       <label for="make">Make</label>
-      <input [(ngModel)]="subscription.make" type="text" class="form-control" id="make" placeholder="e.g. BMW">
+      <input name="make" [(ngModel)]="subscription.make" type="text" class="form-control" id="make" placeholder="e.g. BMW">
     </div>
     <div class="form-group col-md-3">
       <label for="model">Model</label>
-      <input [(ngModel)]="subscription.model" type="text" class="form-control" id="model" placeholder="e.g. 320">
+      <input name="model" [(ngModel)]="subscription.model" type="text" class="form-control" id="model" placeholder="e.g. 320">
     </div>
     <div class="form-group col-md-3">
       <label for="trim">Trim</label>
-      <input [(ngModel)]="subscription.trim" type="text" class="form-control" id="trim" placeholder="e.g. Cabrio">
+      <input name="trim" [(ngModel)]="subscription.trim" type="text" class="form-control" id="trim" placeholder="e.g. Cabrio">
     </div>
   </div>
   <div class="form-row">
-    <button class="btn btn-success btn-lg btn-block" (click)="subscribe()">Subscribe</button>
+    <button [disabled]="!form.valid" class="btn btn-success btn-lg btn-block" (click)="subscribe(form)">Subscribe</button>
   </div>
-</div>
+</form>

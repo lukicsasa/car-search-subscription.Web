@@ -29,7 +29,7 @@ export class RequestService {
         message = 'Can\'t connect to server!';
         break;
       case 401:
-        this.router.navigate(['login']);
+        this.sessionService.logout();
         break;
       case 400:
         this.handleValidation(error.error);
@@ -57,7 +57,7 @@ export class RequestService {
     return params;
   }
 
-  private setHeaders = () : HttpHeaders => {
+  private setHeaders = (): HttpHeaders => {
     let headers = new HttpHeaders();
     if (this.sessionService.accessToken)
       headers = headers.set('Authorization', this.sessionService.accessToken);

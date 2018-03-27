@@ -19,7 +19,8 @@ export class RegisterComponent implements OnInit {
     this.user = new User();
   }
 
-  register = () => {
+  register = (form) => {
+    if(!form.valid) return;
     if (this.user.password !== this.confirmPassword) {
       this.alertService.showError('Passwords don\'t match');
       return;
