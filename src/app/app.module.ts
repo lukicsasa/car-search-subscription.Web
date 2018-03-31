@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -45,8 +46,9 @@ import { FormatDatePipe } from './shared/pipes/format-date.pipe';
     NgSelectModule,
     ReactiveFormsModule,
     NgbModule.forRoot(),
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [SessionService, AlertService, AuthGuard, RequestService, RegisterService, HomeService, AddSubscriptionService],
+    providers: [SessionService, AlertService, AuthGuard, RequestService, RegisterService, HomeService, AddSubscriptionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

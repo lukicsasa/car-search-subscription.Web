@@ -2,13 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>CarSearchSubscription.Web</title>
+  <meta name="theme-color" content="#4CAF50">
+  <link rel="manifest" href="manifest.json">
+  <title>Cars</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-  <app-root></app-root>
+    <noscript>
+        <h3 style="color: #4CAF50; font-family: Helvetica; margin: 2rem;">
+            Sorry, but app is not available without javascript
+        </h3>
+      </noscript>
+  <app-root role="main">
+    <div class="spinner"></div>
+  </app-root>
 </body>
 </html>
