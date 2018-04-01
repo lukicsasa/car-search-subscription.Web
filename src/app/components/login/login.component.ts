@@ -15,14 +15,13 @@ export class LoginComponent implements OnInit {
   constructor(private loginService: LoginService, private sessionService: SessionService, private router: Router) { }
 
   ngOnInit() {
-    if(this.sessionService.isLoggedIn){
+    if (this.sessionService.isLoggedIn) {
       this.router.navigate([this.sessionService.getDefaultRoute()]);
     }
   }
 
-  login = (form) => {
-    if(!form.valid) return;
+  login(form) {
+    if (!form.valid) return;
     this.loginService.login(this.user);
   }
-
 }

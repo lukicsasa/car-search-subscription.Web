@@ -11,7 +11,7 @@ import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  providers: [NotificationService]
+  providers: [NotificationService, HomeService]
 })
 export class HomeComponent implements OnInit, OnDestroy {
   subscriptions: Subscription[];
@@ -36,9 +36,5 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.homeService.getSubscriptions().subscribe(data => {
       this.subscriptions = data;
     });
-  }
-
-  toggleSubscription(id) {
-    this.homeService.toggleSubscription(id).subscribe(data => this.getSubscriptions());
   }
 }

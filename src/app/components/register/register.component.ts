@@ -1,12 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {RegisterService} from './register.service';
-import {User} from '../../shared/models/user';
-import {AlertService} from '../alert/alert.service';
+import { Component, OnInit } from '@angular/core';
+import { RegisterService } from './register.service';
+import { User } from '../../shared/models/user';
+import { AlertService } from '../alert/alert.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
+  providers: [RegisterService]
 })
 export class RegisterComponent implements OnInit {
   user: User;
@@ -19,8 +20,8 @@ export class RegisterComponent implements OnInit {
     this.user = new User();
   }
 
-  register = (form) => {
-    if(!form.valid) return;
+  register(form) {
+    if (!form.valid) return;
     if (this.user.password !== this.confirmPassword) {
       this.alertService.showError('Passwords don\'t match');
       return;

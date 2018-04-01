@@ -12,19 +12,17 @@ import { SessionService } from './shared/services/session.service';
 import { AlertService } from './components/alert/alert.service';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { RequestService } from './shared/services/request.service';
-import { LoginService } from './components/login/login.service';
-import { RegisterService } from './components/register/register.service';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AlertComponent } from './components/alert/alert.component';
-import { HomeService } from './components/home/home.service';
 import { AddSubscriptionComponent } from './components/add-subscription/add-subscription.component';
-import { AddSubscriptionService } from './components/add-subscription/add-subscription.service';
-import { environment } from '../environments/environment.prod';
-import { NotificationService } from './shared/services/notification.service';
 import { FormatDatePipe } from './shared/pipes/format-date.pipe';
+import { SubscriptionComponent } from './components/home/subscription/subscription.component';
+import { OfflineHeaderComponent } from './shared/components/offline-header/offline-header.component';
+import { DisabledOfflineDirective } from './shared/directives/disabled-offline.directive';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -36,7 +34,10 @@ import { FormatDatePipe } from './shared/pipes/format-date.pipe';
     HeaderComponent,
     AlertComponent,
     AddSubscriptionComponent,
-    FormatDatePipe
+    FormatDatePipe,
+    SubscriptionComponent,
+    OfflineHeaderComponent,
+    DisabledOfflineDirective,
   ],
   imports: [
     BrowserModule,
@@ -46,9 +47,9 @@ import { FormatDatePipe } from './shared/pipes/format-date.pipe';
     NgSelectModule,
     ReactiveFormsModule,
     NgbModule.forRoot(),
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
+    environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : []
   ],
-    providers: [SessionService, AlertService, AuthGuard, RequestService, RegisterService, HomeService, AddSubscriptionService],
+  providers: [SessionService, AlertService, AuthGuard, RequestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

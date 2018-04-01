@@ -22,7 +22,7 @@ export class RequestService {
     return this.http.get(environment.baseUri + uri, { headers: this.setHeaders(), params: this.createParams(params) });
   }
 
-  handleError = (error: any) => {
+  handleError(error: any) {
     let message = 'Error';
     switch (error.status) {
       case 0:
@@ -43,21 +43,22 @@ export class RequestService {
     return Observable.throw(message);
   }
 
-  private handleValidation = (obj: any) => {
+  private handleValidation(obj: any) {
     for (const field of Object.keys(obj)) {
       this.alertService.showError(obj[field]);
     }
   }
 
-  private createParams = (obj: any): HttpParams => {
-    let params: HttpParams;
+  private createParams(obj: any): HttpParams {
+    let params = new HttpParams();
     for (var field in obj) {
-      params = params.set(field, obj[field]);
+      if (obj[field])
+        params = params.set(field, obj[field]);
     }
     return params;
   }
 
-  private setHeaders = (): HttpHeaders => {
+  private setHeaders(): HttpHeaders {
     let headers = new HttpHeaders();
     if (this.sessionService.accessToken)
       headers = headers.set('Authorization', this.sessionService.accessToken);

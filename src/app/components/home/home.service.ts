@@ -8,12 +8,12 @@ export class HomeService {
 
   constructor(private request: RequestService) { }
 
-  getSubscriptions = () => {
+  getSubscriptions() {
     return this.request.get('subscription').
       pipe(catchError(err => this.request.handleError(err)));
   }
 
-  toggleSubscription = (id) => {
+  toggleSubscription(id) {
     return this.request.post('subscription/toggle/' + id).
       pipe(catchError(err => this.request.handleError(err)));
   }

@@ -1,8 +1,10 @@
 export class Subscription {
-    _id: String;
+    _id: string;
     year: Number;
-    name: String;
-    make: String;
-    model: String;
-    trim: String;
+    name: string;
+    make: string;
+    model: string;
+    trim: string;
+    dateCreated: Date;
+    active: boolean;
 }

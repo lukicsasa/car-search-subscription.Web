@@ -8,22 +8,22 @@
   <div class="form-row">
     <div class="form-group col-md-3">
       <label for="year">Year</label>
-      <input name="year" [(ngModel)]="subscription.year" type="number" class="form-control" id="year" placeholder="e.g. 2017">
+      <ng-select (change)="onYearChange()" [items]="years" name="year" [(ngModel)]="subscription.year" id="year" placeholder="e.g. 2017"></ng-select>
     </div>
     <div class="form-group col-md-3">
       <label for="make">Make</label>
-      <input name="make" [(ngModel)]="subscription.make" type="text" class="form-control" id="make" placeholder="e.g. BMW">
+      <ng-select (change)="onMakeChange()" [items]="makes" name="make" [(ngModel)]="subscription.make" id="make" placeholder="e.g. BMW"></ng-select>
     </div>
     <div class="form-group col-md-3">
       <label for="model">Model</label>
-      <input name="model" [(ngModel)]="subscription.model" type="text" class="form-control" id="model" placeholder="e.g. 320">
+      <ng-select (change)="onModelChange()" [items]="models" name="model" [(ngModel)]="subscription.model" id="model" placeholder="e.g. 320"></ng-select>
     </div>
     <div class="form-group col-md-3">
       <label for="trim">Trim</label>
-      <input name="trim" [(ngModel)]="subscription.trim" type="text" class="form-control" id="trim" placeholder="e.g. Cabrio">
+      <ng-select (change)="onTrimChange()" [items]="trims" name="trim" [(ngModel)]="subscription.trim" id="trim" placeholder="e.g. Cabrio"></ng-select>
     </div>
   </div>
   <div class="form-row">
-    <button [disabled]="!form.valid" class="btn btn-success btn-lg btn-block" (click)="subscribe(form)">Subscribe</button>
+    <button disabledOffline class="btn btn-success btn-lg btn-block" (click)="subscribe(form)">Subscribe</button>
   </div>
 </form>

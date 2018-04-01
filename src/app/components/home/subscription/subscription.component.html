@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="card-header"><span>{{sub.name}}</span></div>
+  <div class="card-body">
+    <p>Year: <span>{{sub.year}}</span></p>
+    <p>Make: <span>{{sub.make}}</span></p>
+    <p>Model: <span>{{sub.model}}</span></p>
+    <p>Trim: <span>{{sub.trim}}</span></p>
+    <p>Date Created: <span>{{sub.dateCreated | formatDate}}</span></p>
+    <button disabledOffline class="btn btn-md" [ngClass]="{'btn-primary': !sub.active, 'btn-danger': sub.active}" (click)="toggleSubscription(sub._id)">
+      {{sub.active ? 'Deactivate' : 'Activate'}}
+    </button>
+  </div>
+</div>

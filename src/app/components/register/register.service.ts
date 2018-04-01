@@ -10,7 +10,7 @@ export class RegisterService {
   constructor(private requestService: RequestService, private alertService: AlertService, private router: Router) {
   }
 
-  register = (user: User) => {
+  register(user: User) {
     return this.requestService.post('user/register', { ...user }).subscribe(
       data => {
         this.alertService.showSuccess('Registered successfully!');
@@ -19,5 +19,4 @@ export class RegisterService {
       err => this.requestService.handleError(err)
     );
   }
-
 }

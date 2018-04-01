@@ -6,7 +6,7 @@
       <input required [(ngModel)]="user.password" name="password" type="password" placeholder="password" />
       <input required [(ngModel)]="confirmPassword" name="confirmPassword"
         type="password" placeholder="confirm password" />
-      <button [disabled]="!form.valid " (click)="register(form)">create</button>
+      <button disabledOffline (click)="register(form)">create</button>
       <p class="message">Already registered?
         <a routerLink='/login'>Sign In</a>
       </p>
