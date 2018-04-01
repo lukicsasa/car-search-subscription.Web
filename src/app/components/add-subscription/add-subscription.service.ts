@@ -12,23 +12,8 @@ export class AddSubscriptionService {
             pipe(catchError(err => this.request.handleError(err)));
   }
 
-  getYears(subscription = null) {
-    return this.request.get('car/years', subscription)
-            .pipe(catchError(err => this.request.handleError(err)));
-  }
-
-  getMakes(subscription = null) {
-    return this.request.get('car/makes', subscription)
-            .pipe(catchError(err => this.request.handleError(err)));
-  }
-
-  getModels(subscription) {
-    return this.request.get('car/models', subscription)
-            .pipe(catchError(err => this.request.handleError(err)));
-  }
-
-  getTrims(subscription) {
-    return this.request.get('car/trims', subscription)
+  filter(subscription) {
+    return this.request.get('car/filter', subscription)
             .pipe(catchError(err => this.request.handleError(err)));
   }
 }

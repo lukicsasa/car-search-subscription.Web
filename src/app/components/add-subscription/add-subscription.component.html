@@ -8,19 +8,19 @@
   <div class="form-row">
     <div class="form-group col-md-3">
       <label for="year">Year</label>
-      <ng-select (change)="onYearChange()" [items]="years" name="year" [(ngModel)]="subscription.year" id="year" placeholder="e.g. 2017"></ng-select>
+      <ng-select (change)="onChange()" [items]="years" name="year" [(ngModel)]="subscription.year" id="year" placeholder="e.g. 2017"></ng-select>
     </div>
     <div class="form-group col-md-3">
       <label for="make">Make</label>
-      <ng-select (change)="onMakeChange()" [items]="makes" name="make" [(ngModel)]="subscription.make" id="make" placeholder="e.g. BMW"></ng-select>
+      <ng-select (change)="onChange()" [items]="makes" name="make" [(ngModel)]="subscription.make" id="make" placeholder="e.g. BMW"></ng-select>
     </div>
     <div class="form-group col-md-3">
       <label for="model">Model</label>
-      <ng-select (change)="onModelChange()" [items]="models" name="model" [(ngModel)]="subscription.model" id="model" placeholder="e.g. 320"></ng-select>
+      <ng-select (change)="onChange()" [items]="models" name="model" [(ngModel)]="subscription.model" id="model" placeholder="e.g. 320"></ng-select>
     </div>
     <div class="form-group col-md-3">
       <label for="trim">Trim</label>
-      <ng-select (change)="onTrimChange()" [items]="trims" name="trim" [(ngModel)]="subscription.trim" id="trim" placeholder="e.g. Cabrio"></ng-select>
+      <ng-select [items]="trims" name="trim" [(ngModel)]="subscription.trim" id="trim" placeholder="e.g. Cabrio"></ng-select>
     </div>
   </div>
   <div class="form-row">
