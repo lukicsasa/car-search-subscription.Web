@@ -22,8 +22,8 @@ export class AddSubscriptionComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.addSubscriptionService.getYears().subscribe(data => this.years = data);
-    this.addSubscriptionService.getMakes().subscribe(data => this.makes = data);
+    this.getYears();
+    this.getMakes();
   }
 
   subscribe(form) {
@@ -37,18 +37,34 @@ export class AddSubscriptionComponent implements OnInit {
   }
 
   onYearChange() {
-    this.addSubscriptionService.getMakes(this.subscription).subscribe(data => this.makes = data);
-    this.addSubscriptionService.getModels(this.subscription).subscribe(data => this.models = data);
+    this.getMakes()
+    this.getModels();
   }
 
   onMakeChange() {
-    this.addSubscriptionService.getYears(this.subscription).subscribe(data => this.years = data);
-    this.addSubscriptionService.getModels(this.subscription).subscribe(data => this.models = data);
+    this.getYears();
+    this.getModels()
   }
 
   onModelChange() {
-    this.addSubscriptionService.getYears(this.subscription).subscribe(data => this.years = data);
+    this.getYears();
     if (this.subscription.year && this.subscription.make && this.subscription.model)
-      this.addSubscriptionService.getTrims(this.subscription).subscribe(data => this.trims = data);
+      this.getTrims();
+  }
+
+  private getYears() {
+    this.addSubscriptionService.getYears(this.subscription).subscribe(data => this.years = data);
+  }
+
+  private getMakes() {
+    this.addSubscriptionService.getMakes(this.subscription).subscribe(data => this.makes = data);
+  }
+
+  private getModels() {
+    this.addSubscriptionService.getModels(this.subscription).subscribe(data => this.models = data);
+  }
+
+  private getTrims() {
+    this.addSubscriptionService.getTrims(this.subscription).subscribe(data => this.trims = data);
   }
 }
