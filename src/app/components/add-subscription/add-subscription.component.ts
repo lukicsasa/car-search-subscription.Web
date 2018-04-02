@@ -40,7 +40,7 @@ export class AddSubscriptionComponent implements OnInit {
       this.years = data.years;
       this.makes = data.makes;
       this.models = data.models;
-      this.trims = data.trims; 
+      this.trims = data.trims;
     });
   }
 
